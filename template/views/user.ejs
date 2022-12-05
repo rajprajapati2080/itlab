@@ -5,9 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
   </head>
-  <body>
+  <body style=" 
+  /* background black color */
+    background-color: #000000;
+    /* text white */
+    color: #ffffff;
+  
+  "
+  >
     <%- include('../partials/navbar') %>
-    <h1 class="text-center mt-5">Welcome <%= message %> to home page</h1>
-    
+    <h1 class="text-center mt-5"> <%= message %> to your home</h1>
+    <!-- add a duck -->
+    <img src="https://cdn.w600.comps.canstockphoto.com/admin-stamp-drawing_csp19822598.jpg" alt="image">
+    <!-- add a time table -->
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">Time</th>
+          <th scope="col">Subject</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Monday</th>
+          <td>9:00-10:00</td>
+          <td>Maths</td>
+        </tr>
+        <tr>
+          <th scope="row">Tuesday</th>
+          <td>9:00-10:00</td>
+          <td>Science</td>
+        </tr>
+        <tr>
+          <th scope="row">Wednesday</th>
+          <td>9:00-10:00</td>
+          <td>English</td>
+        </tr>
+        <tr>
+          <th scope="row">Thursday</th>
+          <td>9:00-10:00</td>
+          <td>History</td>
+        </tr>
+        <tr>
+          <th scope="row">Friday</th>
+          <td>9:00-10:00</td>
+          <td>Geography</td>
+        </tr>
+      </tbody>
+
   </body>
 </html>

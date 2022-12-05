@@ -45,7 +45,7 @@ router.post("/login", async (req, res) => {
       if (existingUser.userType == "admin") {
         res.render("admin", { message: "welcome admin" });
       } else {
-        res.render("home", { message: "welcome user" });
+        res.render("user", { message: "welcome user" });
       }
     }
   } catch (error) {
