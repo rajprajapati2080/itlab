@@ -15,7 +15,7 @@ router.get("/signup", (req, res) => {
   res.render("signup", { message: "" });
 });
 router.post("/signup", async (req, res) => {
-  let { name, email, password } = req.body;
+  let { name, email, password, userType } = req.body;
   try {
     let existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -23,8 +23,9 @@ router.post("/signup", async (req, res) => {
     } else if (password.length < 6) {
       res.render("signup", { message: "minlength" });
     } else {
-      let user = await new User({ name, email, password });
+      let user = await new User({ name, email, password, userType });
       let data = await user.save();
+      console.log(data);
       res.render("signup", { message: "registered" });
     }
   } catch (error){
@@ -41,7 +42,11 @@ router.post("/login", async (req, res) => {
       res.render("login", { message: "invalid password" });
     }
     else{
-      res.render("home", { message: email });
+      if (existingUser.userType == "admin") {
+        res.render("admin", { message: "welcome admin" });
+      } else {
+        res.render("home", { message: "welcome user" });
+      }
     }
   } catch (error) {
     res.render("login", { message: "invalid" });

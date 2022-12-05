@@ -1,5 +1,6 @@
 let mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/loginSystem", {
+const adminPassword = encodeURIComponent( process.env.ADMIN_PASSWORD )
+mongoose.connect("mongodb+srv://admin:admin@cluster0.bctanhi.mongodb.net/itlab?retryWrites=true&w=majority", {
     useUnifiedTopology: true,
     useNewUrlParser: true
   })

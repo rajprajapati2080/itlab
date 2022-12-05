@@ -14,7 +14,13 @@ let userSchema= new mongoose.Schema({
         type:String,
         required:true,
         minlength:6
+    },
+    // add a user type field
+    userType:{
+        type:String,
+        required:true
     }
+
 })
 userSchema.pre('save', async function(next) {
     this.password= await bcrypt.hash(this.password,10)
